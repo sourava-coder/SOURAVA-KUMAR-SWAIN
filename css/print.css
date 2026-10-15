@@ -1,0 +1,11 @@
+/* print.css: prints only the resume page. */
+@media print{.marquee{display:none!important}}
+
+@media print{
+  @page{margin:14mm}
+  body{background:#fff!important}
+  body>*:not(main),#loader,#progress,header.nav,footer,#top,.rbar,.skip{display:none!important}
+  main>section:not(#resume){display:none!important}
+  #resume{padding:0;border:0}.sec{display:block}.sec>header{display:none}
+  .paper{box-shadow:none;border:0;padding:0}
+}

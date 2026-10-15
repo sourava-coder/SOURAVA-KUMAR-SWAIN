@@ -1,0 +1,54 @@
+/* animations.css: entrance, tech strip, scroll reveals, hover effects. Switches off for reduced motion. */
+/* ---------- hero entrance (plays once the loader curtain lifts) ---------- */
+html.js:not(.ready) .h-anim{opacity:0}
+html.ready .h-anim{animation:up .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0)*110ms + 120ms)}
+html.ready .hero-photo.h-anim{animation-name:photoIn;animation-duration:1.1s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes photoIn{from{opacity:0;transform:scale(.88) rotate(-4deg)}to{opacity:1;transform:none}}
+.name .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .1em;margin:0 -.04em -.1em}
+.name .c{display:inline-block}
+html.js:not(.ready) .name .c{transform:translateY(108%)}
+html.ready .name .c{animation:rise .9s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(var(--i)*45ms + 350ms)}
+@keyframes rise{from{transform:translateY(108%)}to{transform:none}}
+
+/* ---------- tech strip ---------- */
+.marquee{border-block:2.5px solid var(--ink);background:var(--hi);color:var(--on-hi);overflow:hidden;padding:14px 0;font:800 clamp(20px,3vw,30px)/1 var(--fd);white-space:nowrap;letter-spacing:-.01em}
+.track{display:inline-flex;animation:marq 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{display:inline-flex;align-items:center;gap:30px;padding-right:30px}
+.track span::after{content:"";width:12px;height:12px;background:var(--on-hi);transform:rotate(45deg);flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- scroll reveals ---------- */
+.rv{transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+html.js .rv:not(.in){opacity:0;transform:translateY(28px)}
+.pop{animation:up .65s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--d,0)*90ms)}
+html.js .rv:not(.in) .pop{animation-play-state:paused}
+.sec h2{position:relative;display:inline-block;padding-bottom:10px}
+.sec h2::after{content:"";position:absolute;left:0;bottom:0;height:8px;width:56%;background:var(--hi);transform:scaleX(0);transform-origin:left;transition:transform .8s .3s cubic-bezier(.2,.8,.2,1)}
+.sec>header.in h2::after{transform:scaleX(1)}
+html:not(.js) .sec h2::after{transform:none}
+.skills .meter i.f{transform-origin:left}
+html.js .skills:not(.in) .meter i.f{transform:scaleX(0)}
+.skills.in .meter i.f{animation:fill .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--k)*80ms + 250ms)}
+@keyframes fill{from{transform:scaleX(0)}to{transform:none}}
+.tl::before{transform-origin:top;transition:transform 1.5s cubic-bezier(.4,0,.2,1)}
+html.js .tl:not(.in)::before{transform:scaleY(0)}
+html.js .tl:not(.in) li::before{transform:scale(0)}
+.tl li::before{transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.tl.in li:nth-child(1)::before{transition-delay:.3s}.tl.in li:nth-child(2)::before{transition-delay:.8s}.tl.in li:nth-child(3)::before{transition-delay:1.3s}.tl.in li:nth-child(n+4)::before{transition-delay:1.6s}
+
+/* ---------- interactions ---------- */
+.btn{position:relative;overflow:hidden;transition:transform .15s,filter .2s,background .2s,color .2s}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-130%);pointer-events:none}
+.btn:hover::after{transform:translateX(130%);transition:transform .7s}
+.btn:active{transform:scale(.97)}
+.chip{transition:transform .15s,background .2s,color .2s}.chip:active{transform:scale(.94)}
+.proj{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.proj:hover{transform:translate(-5px,-5px);box-shadow:8px 8px 0 var(--cobalt)}
+.proj.big:hover{box-shadow:8px 8px 0 var(--hi)}
+.skill{transition:background .2s}.skill:hover{background:color-mix(in srgb,var(--hi) 22%,transparent)}
+.row2{transition:padding-left .25s}.row2:hover{padding-left:12px}
+.links a{transition:color .2s,background .2s}
+.logo .brand-mark{transition:transform .35s cubic-bezier(.3,1.6,.5,1)}.logo:hover .brand-mark{transform:rotate(-10deg) scale(1.08)}
+.find a{transition:text-decoration-color .2s,transform .2s;display:inline-block}.find a:hover{transform:translateY(-2px)}

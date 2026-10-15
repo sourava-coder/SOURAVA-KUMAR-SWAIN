@@ -1,0 +1,14 @@
+/* tokens.css: colours, fonts and the dark theme. Change the look of the whole site here. */
+
+:root{
+  --paper:#F2F5FB; --panel:#FFFFFF; --ink:#0C1633; --ink2:#4A5675; --line:#D3DCEE; --grid:rgba(35,66,245,.07);
+  --cobalt:#2342F5; --on-cobalt:#FFFFFF; --hi:#FFD84D; --on-hi:#0C1633; --ok:#12805C; --bad:#B3261E;
+  --fd:"Bricolage Grotesque",system-ui,sans-serif; --fb:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --fm:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1029; --panel:#101839; --ink:#EAF0FF; --ink2:#9CA9CE; --line:#243061; --grid:rgba(124,147,255,.09);
+  --cobalt:#8EA2FF; --on-cobalt:#0A1029; --ok:#4CD6A0; --bad:#FF8F86}}
+:root[data-theme="dark"]{
+  --paper:#0A1029; --panel:#101839; --ink:#EAF0FF; --ink2:#9CA9CE; --line:#243061; --grid:rgba(124,147,255,.09);
+  --cobalt:#8EA2FF; --on-cobalt:#0A1029; --ok:#4CD6A0; --bad:#FF8F86}

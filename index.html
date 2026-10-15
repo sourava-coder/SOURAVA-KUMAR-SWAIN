@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sourava Kumar Swain | Full-Stack Developer and AI Engineer</title>
+<meta name="description" content="Portfolio of Your Name, a full-stack developer and AI engineer. Projects, skills, resume and contact.">
+<meta name="theme-color" content="#F2F5FB">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<script src="js/boot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader" role="status" aria-label="Loading"><div class="box"><div class="pct"><span id="pct">0</span>%</div><div class="bar"><i id="pbar"></i></div></div></div>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap in">
+    <a class="logo" href="#home" aria-label="Home"><img class="brand-mark" id="ini" src="assets/logo.png" alt="Sourava Kumar Swain logo"><span id="logoName">Sourava Kumar Swain</span></a>
+    <button class="icon-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="links"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <ul class="links" id="links">
+      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li><li><a href="#education">Education</a></li><li><a href="#resume">Resume</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch colour theme"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg></button>
+    <a class="btn hire" href="#contact" style="padding:9px 16px">Hire me</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="home"><div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="status h-anim" style="--d:0"><i></i><span id="avail">Available to work</span></span>
+      <p class="hi h-anim" style="--d:1">Hi, I'm</p>
+      <h1 class="name" id="heroName" aria-label="Your Name">Sourava Kumar Swain</h1>
+      <div class="prompt h-anim" style="--d:6" aria-live="off"><span class="gt" aria-hidden="true">&gt;</span><span><span class="sr" id="roleSr"></span><span aria-hidden="true">I build <span id="typed"></span><span class="cursor"></span></span></span></div>
+      <div class="cta h-anim" style="--d:7"><a class="btn" href="#projects">View projects</a><a class="btn line" href="#contact">Hire me</a><a class="btn line" href="#resume">See resume</a></div>
+      <div class="find h-anim" style="--d:8" id="find"><span>Find me on</span></div>
+    </div>
+    <div class="hero-photo h-anim" style="--d:2" id="photoWrap">
+      <svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="97" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 7"/><circle cx="100" cy="3" r="3.5" fill="var(--cobalt)"/><circle cx="197" cy="100" r="2.5" fill="currentColor"/></svg>
+      <div class="tilt" id="tilt">
+        <div class="frame" id="frame">
+          <div class="mono" id="mono" aria-hidden="true">SK</div>
+          <img id="photo" alt="" decoding="async">
+        </div>
+        <i class="reg a" aria-hidden="true"></i><i class="reg b" aria-hidden="true"></i><i class="reg c" aria-hidden="true"></i><i class="reg d" aria-hidden="true"></i>
+      </div>
+      <span class="fchip c1" id="chip1">Full-Stack</span><span class="fchip c2" id="chip2">AI Engineer</span><span class="fchip c3" id="chip3">Bhubaneswar</span>
+      <label class="pv" id="pv" hidden>Preview your photo<input type="file" accept="image/*" id="pvIn"></label>
+    </div>
+  </div></section>
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+  <section id="about"><div class="wrap sec">
+    <header><h2>About me</h2></header>
+    <div><div id="aboutText"></div><dl class="facts" id="facts"></dl></div>
+  </div></section>
+
+  <section id="skills"><div class="wrap sec">
+    <header><h2>My skills</h2><p>The tools and languages I use most, grouped so you can filter by area.</p></header>
+    <div><div class="chips" id="skillChips" role="group" aria-label="Filter skills"></div><div class="skills" id="skillList"></div></div>
+  </div></section>
+
+  <section id="projects"><div class="wrap sec">
+    <header><h2>Featured projects</h2><p>A few things I have built, from full stack platforms to machine learning tools.</p></header>
+    <div><div class="chips" id="projChips" role="group" aria-label="Filter projects"></div><div class="projects" id="projList"></div></div>
+  </div></section>
+
+  <section id="journey"><div class="wrap sec">
+    <header><h2>My journey</h2><p>Internships, awards and milestones, newest first.</p></header>
+    <ol class="tl" id="tl"></ol>
+  </div></section>
+
+  <section id="education"><div class="wrap sec">
+    <header><h2>Education</h2><p>Where I studied and what I focused on.</p></header>
+    <div><div class="list2" id="edu"></div><h3 class="sub">Certifications</h3><div class="list2" id="certs"></div></div>
+  </div></section>
+
+  <section id="resume"><div class="wrap sec">
+    <header><h2>Resume</h2><p>A one-page summary of my experience, skills and education.</p></header>
+    <div>
+      <div class="rbar"><button class="btn" id="printBtn" type="button">Print or save as PDF</button><span class="ok" id="printMsg" role="status"></span></div>
+      <article class="paper" id="paper" aria-label="Resume"></article>
+    </div>
+  </div></section>
+
+  <section id="contact"><div class="wrap sec">
+    <header><h2>Let's talk about your project</h2><p>Reach out about collaborations, freelance work or job opportunities. I reply within a day or two.</p></header>
+    <div>
+      <form class="contact" id="form" novalidate>
+        <div class="fld"><label for="fName">Your name</label><input id="fName" autocomplete="name" required><div class="err" id="eName"></div></div>
+        <div class="fld"><label for="fEmail">Your email</label><input id="fEmail" type="email" autocomplete="email" inputmode="email" required><div class="err" id="eEmail"></div></div>
+        <div class="fld"><label for="fMsg">Your message</label><textarea id="fMsg" required></textarea><div class="err" id="eMsg"></div></div>
+        <div><button class="btn" type="submit">Send message</button></div>
+        <p class="ok" id="sent" role="status" style="margin:0"></p>
+      </form>
+      <p style="margin-top:26px;color:var(--ink2)">Prefer to write directly?</p>
+      <div class="direct" id="direct"></div>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap in">
+  <a class="logo" href="#home"><img class="brand-mark" id="ini2" src="assets/logo.png" alt=""><span id="logoName2"></span></a>
+  <small id="copy"></small>
+  <small>Local time in <span id="city"></span>: <time id="clock"></time></small>
+</div></footer>
+<button class="icon-btn" id="top" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/content.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/reveal.js"></script>
+</body>
+</html>
