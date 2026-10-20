@@ -18,6 +18,7 @@ try:
     from .local_auth import ADMIN_PIN
 except ImportError:
     ADMIN_PIN = ""
+ADMIN_PIN = os.getenv("ADMIN_PIN", ADMIN_PIN)
 
 app = FastAPI(title="Portfolio content API", version="1.0.0")
 app.add_middleware(

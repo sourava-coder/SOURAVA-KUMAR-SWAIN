@@ -1,10 +1,14 @@
 import base64
 import hmac
 import json
+import os
 import secrets
 import time
 
-_SESSION_KEY = secrets.token_bytes(32)
+_configured_key = os.getenv("SESSION_SIGNING_KEY", "")
+if _configured_key and len(_configured_key) < 32:
+    raise RuntimeError("SESSION_SIGNING_KEY must contain at least 32 characters")
+_SESSION_KEY = _configured_key.encode() if _configured_key else secrets.token_bytes(32)
 
 
 def new_token() -> str:
