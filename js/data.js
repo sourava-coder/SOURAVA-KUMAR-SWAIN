@@ -4,7 +4,7 @@ var P={
   name:'Sourava Kumar Swain', role:'Full-Stack Developer and AI Engineer', city:'Bhubaneswar', tz:'Asia/Kolkata',
   photo:'assets/hero.png', photoAlt:'Portrait of Sourava Kumar Swain', photoPos:'50% 20%', /* photo: 'assets/photo.jpg' (put the file in the assets folder). photoPos moves the crop, e.g. '50% 0%' shows more head room. */
   email:'souravkumarswain3333@gmail.com', whatsapp:'+919692618822', available:true,
-  phrases:['full-stack web apps','AI features people actually use','fast, accessible interfaces','APIs that stay up'],
+  phrases:['full-stack Developer','AI Engineer','Problem Solver'],
   socials:[['GitHub','https://github.com/sourava-coder'],['LinkedIn','https://www.linkedin.com/in/souravakumarswain'],['X','https://x.com/souravakumarswain'],['Email','souravkumarswain3333@gmail.com']],
   about:['I design and build web products end to end: the interface, the API and the data behind it. Lately most of my work adds AI to real products, with the grounding, testing and guardrails that make it dependable.',
          'Write two or three sentences here about what you care about, what you are working on now, and the kind of work you want next.'],
