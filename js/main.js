@@ -42,7 +42,6 @@
   }
   refresh().catch(function(error){
     console.warn("Live portfolio content is unavailable; showing the bundled preview.",error);
-    setStatus("Live content is temporarily unavailable. Showing the latest bundled preview.");
   }).then(function(){
     return ["js/content.js","js/ui.js","js/hero.js","js/reveal.js"].reduce(function(chain,src){
       return chain.then(function(){return loadScript(src)});
