@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sourava Kumar Swain | Full-Stack Developer and AI Engineer</title>
-<meta name="description" content="Portfolio of Your Name, a full-stack developer and AI engineer. Projects, skills, resume and contact.">
+<meta name="description" content="Portfolio of Sourava Kumar Swain, a full-stack developer and AI engineer. Projects, skills, resume and contact.">
 <meta name="theme-color" content="#F2F5FB">
 <link rel="icon" href="assets/logo.png" type="image/png">
 <script src="js/boot.js"></script>
@@ -16,13 +16,16 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/dynamic.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/print.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div id="apiState" role="status" hidden></div>
 <div id="loader" role="status" aria-label="Loading"><div class="box"><div class="pct"><span id="pct">0</span>%</div><div class="bar"><i id="pbar"></i></div></div></div>
 <div id="progress" aria-hidden="true"></div>
+<aside id="maintenanceNotice" class="maintenance" hidden></aside>
 
 <header class="nav">
   <div class="wrap in">
@@ -44,6 +47,7 @@
       <p class="hi h-anim" style="--d:1">Hi, I'm</p>
       <h1 class="name" id="heroName" aria-label="Your Name">Sourava Kumar Swain</h1>
       <div class="prompt h-anim" style="--d:6" aria-live="off"><span class="gt" aria-hidden="true">&gt;</span><span><span class="sr" id="roleSr"></span><span aria-hidden="true">I am a <span id="typed"></span><span class="cursor"></span></span></span></div>
+      <p class="hero-intro" id="heroIntro" hidden></p>
       <div class="cta h-anim" style="--d:7"><a class="btn" href="#projects">View projects</a><a class="btn line" href="#contact">Hire me</a><a class="btn line" href="#resume">See resume</a></div>
       <div class="find h-anim" style="--d:8" id="find"><span>Find me on</span></div>
     </div>
@@ -90,7 +94,7 @@
   <section id="resume"><div class="wrap sec">
     <header><h2>Resume</h2><p>A one-page summary of my experience, skills and education.</p></header>
     <div>
-      <div class="rbar"><button class="btn" id="printBtn" type="button">Print or save as PDF</button><span class="ok" id="printMsg" role="status"></span></div>
+      <div class="rbar"><button class="btn" id="printBtn" type="button">Print or save as PDF</button><a class="btn line" id="resumeDownload" hidden>Download CV</a><span class="ok" id="printMsg" role="status"></span></div>
       <article class="paper" id="paper" aria-label="Resume"></article>
     </div>
   </div></section>
@@ -118,11 +122,9 @@
 </div></footer>
 <button class="icon-btn" id="top" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
+<script src="js/config.js"></script>
 <script src="js/data.js"></script>
 <script src="js/utils.js"></script>
-<script src="js/content.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/hero.js"></script>
-<script src="js/reveal.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

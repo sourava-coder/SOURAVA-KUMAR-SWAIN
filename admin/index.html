@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1029">
+<title>Portfolio Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+<script src="../js/config.js"></script>
+<script defer src="admin.js"></script>
+</head>
+<body>
+<div class="admin-loading" id="loadingView" role="status">Connecting to your portfolio…</div>
+<section class="login-wrap" id="loginView" hidden>
+  <form class="login-card glass" id="loginForm">
+    <a class="brand" href="../"><span class="brand-mark">SK</span><span>Portfolio Admin</span></a>
+    <p class="eyebrow">PRIVATE DASHBOARD</p>
+    <h1>Welcome back.</h1>
+    <p class="muted">Sign in to update your public portfolio.</p>
+    <label>4-digit PIN<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" autocomplete="off" required></label>
+    <button class="primary" type="submit">Sign in</button>
+    <p class="message" id="loginMessage" role="alert"></p>
+    <p class="setup-note">Your PIN is configured privately in the backend code. It is never saved in Supabase or sent back by the API.</p>
+  </form>
+</section>
+
+<div class="shell" id="appView" hidden>
+  <aside class="sidebar glass">
+    <a class="brand" href="../"><span class="brand-mark">SK</span><span>Portfolio Admin</span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav id="navigation" aria-label="Admin sections">
+      <button class="nav-item active" data-section="overview">Overview</button>
+      <button class="nav-item" data-section="profile">Profile</button>
+      <button class="nav-item" data-section="about">About & facts</button>
+      <button class="nav-item" data-section="skills">Skills</button>
+      <button class="nav-item" data-section="projects">Projects</button>
+      <button class="nav-item" data-section="socials">Social links</button>
+      <button class="nav-item" data-section="journey">Experience</button>
+      <button class="nav-item" data-section="education">Education</button>
+      <button class="nav-item" data-section="certs">Certifications</button>
+      <button class="nav-item" data-section="settings">Website settings</button>
+    </nav>
+    <div class="side-bottom">
+      <a class="preview-link" href="../" target="_blank" rel="noopener noreferrer">↗ View live portfolio</a>
+      <button id="logoutBtn" class="nav-item">Sign out</button>
+      <small>Content syncs to your database and public site.</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><p class="eyebrow">SOURAVA'S WORKSPACE</p><h1 id="pageTitle">Overview</h1></div>
+      <div class="top-actions"><span class="save-state" id="saveState" role="status"></span><button id="saveBtn" class="primary" hidden>Save changes</button></div>
+    </header>
+    <p class="message global-message" id="globalMessage" role="status"></p>
+    <section id="overviewView">
+      <div class="welcome glass">
+        <div><p class="eyebrow">YOUR PORTFOLIO, AT A GLANCE</p><h2 id="welcomeName">Welcome</h2><p class="muted">Keep your story current. Changes publish to the portfolio as soon as you save.</p></div>
+        <a class="primary" href="../" target="_blank" rel="noopener noreferrer">Preview portfolio ↗</a>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="quick glass"><div><p class="eyebrow">GET STARTED</p><h2>Quick edits</h2></div>
+        <div class="quick-links">
+          <button data-section="profile">Update your profile <span>→</span></button>
+          <button data-section="projects">Manage projects <span>→</span></button>
+          <button data-section="skills">Edit your skills <span>→</span></button>
+          <button data-section="settings">Update website details <span>→</span></button>
+        </div>
+      </div>
+    </section>
+    <section id="editorView" hidden>
+      <div class="editor-intro"><p class="muted" id="sectionIntro"></p><button id="addCategoryBtn" class="secondary" hidden>＋ Add category</button></div>
+      <div class="editor glass" id="editorFields"></div>
+      <div class="editor-footer"><span class="muted">Save to publish your updates. Public pages refresh automatically.</span><button id="saveBottomBtn" class="primary">Save changes</button></div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

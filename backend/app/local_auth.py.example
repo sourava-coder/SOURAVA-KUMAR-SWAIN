@@ -1,0 +1,3 @@
+# Make a local copy named local_auth.py and replace this placeholder with your PIN.
+# Keep local_auth.py out of Git. Use exactly four digits.
+ADMIN_PIN = "9178"

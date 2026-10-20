@@ -2,8 +2,10 @@
 /* hero typing, loader, clock, nav, theme, progress */
 (function(){
   var el=$('#typed'),i=0,j=0,del=false;
-  if(reduce){el.textContent=P.phrases[0];return}
+  if(reduce){el.textContent=P.phrases[0]||P.role;return}
   (function tick(){
+    if(!P.phrases.length){el.textContent=P.role;setTimeout(tick,2000);return}
+    i=i%P.phrases.length;
     var w=P.phrases[i];j+=del?-1:1;el.textContent=w.slice(0,j);
     var t=del?28:60;
     if(!del&&j===w.length){del=true;t=1600}else if(del&&j===0){del=false;i=(i+1)%P.phrases.length;t=350}

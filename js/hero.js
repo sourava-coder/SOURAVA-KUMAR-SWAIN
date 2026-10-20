@@ -1,15 +1,18 @@
 /* hero.js: photo, floating chips, tech strip, and the tilt/glow that follow the pointer. */
 /* photo, floating chips, tech strip */
-(function(){
-  var img=$('#photo'),mono=$('#mono');mono.textContent=ini;
+function renderHero(){
+  var img=$('#photo'),mono=$('#mono');
+  ini=(P.displayName||P.name).split(/\s+/).map(function(w){return w[0]}).join('').slice(0,2).toUpperCase();mono.textContent=ini;
   $('#frame').style.setProperty('--pos',P.photoPos||'50% 20%');
   $('#chip1').textContent=P.role.split(' and ')[0]||'Developer';$('#chip2').textContent=(P.role.split(' and ')[1])||'Open to work';$('#chip3').textContent=P.city;
-  if(P.photo){img.alt=P.photoAlt||('Portrait of '+P.name);img.onload=function(){mono.style.display='none'};img.onerror=function(){img.remove()};img.src=P.photo}else{img.remove()}
+  if(P.photo){if(!img||!img.parentNode){img=document.createElement('img');img.id='photo';$('#frame').appendChild(img)}mono.style.display='';img.alt=P.photoAlt||('Portrait of '+P.name);img.onload=function(){mono.style.display='none'};img.onerror=function(){img.remove()};img.src=safeUrl(P.photo)}else if(img){img.remove();mono.style.display=''}
   /* add ?edit to the address to preview a photo from your device before you add it to the project */
   if(/[?&]edit\b/.test(location.search)){$('#pv').hidden=false;$('#pvIn').addEventListener('change',function(){var f=this.files&&this.files[0];if(!f)return;var u=URL.createObjectURL(f),t=$('#photo')||document.createElement('img');if(!t.parentNode){t.id='photo';$('#frame').appendChild(t)}t.alt='Portrait preview';t.onload=function(){mono.style.display='none'};t.src=u})}
   var words=[];Object.keys(P.skills).forEach(function(g){P.skills[g].forEach(function(s){if(words.indexOf(s[0])<0)words.push(s[0])})});
   var set='<span>'+words.map(esc).join('</span><span>')+'</span>';$('#track').innerHTML=set+set;
-})();
+}
+window.renderHero=renderHero;
+renderHero();
 /* hero pointer effects: tilt the photo and move the glow */
 (function(){
   if(reduce||!window.matchMedia||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
