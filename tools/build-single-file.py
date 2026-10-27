@@ -27,8 +27,8 @@ def asset_data_uri(relative_path):
     return f"data:{mime};base64,{encoded}"
 
 
-html = re.sub(r'<link rel="stylesheet" href="(css/[^"]+)">', inline_css, html)
-html = re.sub(r'<script src="(js/[^"]+)"></script>', inline_js, html)
+html = re.sub(r'<link rel="stylesheet" href="(css/[^"?]+)(?:\?[^"]*)?">', inline_css, html)
+html = re.sub(r'<script src="(js/[^"?]+)(?:\?[^"]*)?"></script>', inline_js, html)
 # Embed local image assets so the generated file does not depend on assets/ beside it.
 html = re.sub(
     r'(<link\b[^>]*\bhref=")(assets/[^"]+)(")',
