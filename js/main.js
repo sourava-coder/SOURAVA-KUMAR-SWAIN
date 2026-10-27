@@ -43,7 +43,7 @@
   refresh().catch(function(error){
     console.warn("Live portfolio content is unavailable; showing the bundled preview.",error);
   }).then(function(){
-    return ["js/content.js","js/ui.js","js/hero.js","js/reveal.js"].reduce(function(chain,src){
+    return ["js/content.js","js/ui.js","js/hero.js?v=clay-mouse-2","js/reveal.js"].reduce(function(chain,src){
       return chain.then(function(){return loadScript(src)});
     },Promise.resolve());
   }).then(function(){

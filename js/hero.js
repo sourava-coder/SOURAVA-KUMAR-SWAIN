@@ -13,6 +13,22 @@ function renderHero(){
 }
 window.renderHero=renderHero;
 renderHero();
+/* decorative pointer follower for mouse users; the native cursor remains available */
+(function(){
+  if(reduce||!window.matchMedia||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  var follower=$('#mouseFollower');
+  document.addEventListener('pointermove',function(e){
+    if(e.pointerType==='touch')return;
+    follower.style.setProperty('--mouse-x',e.clientX+'px');
+    follower.style.setProperty('--mouse-y',e.clientY+'px');
+    follower.classList.add('visible');
+    follower.classList.toggle('hovering',!!(e.target.closest&&e.target.closest('a,button,input,textarea,[role="button"]')));
+  },{passive:true});
+  document.addEventListener('pointerdown',function(){follower.classList.add('pressed')},{passive:true});
+  document.addEventListener('pointerup',function(){follower.classList.remove('pressed')},{passive:true});
+  window.addEventListener('pointerleave',function(){follower.classList.remove('visible','hovering','pressed')});
+  window.addEventListener('blur',function(){follower.classList.remove('visible','hovering','pressed')});
+})();
 /* hero pointer effects: tilt the photo and move the glow */
 (function(){
   if(reduce||!window.matchMedia||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
